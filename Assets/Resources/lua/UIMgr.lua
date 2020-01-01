@@ -4,7 +4,7 @@ local instance=nil
 local Instance=function ()
     if instance==nil then
         instance=UIMgr.new()
-        instance.content=GameObject.Find("content").transform
+        instance.Canvas=GameObject.Find("Canvas").transform
     end
 
     return instance
@@ -20,8 +20,13 @@ function UIMgr:Open(uiType)
     end
 
     if c==nil then
-        Glob.UIBase:Init(uiType)
+        c=Glob.UIName(uiType)
+        c:Init(self.Canvas)
+
+        self.UIDic[uiType]=c
     end
+
+    c:Open()
 end
 
 function UIMgr:Close()

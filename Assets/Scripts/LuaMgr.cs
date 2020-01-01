@@ -27,6 +27,7 @@ public class LuaMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         luaEnv = new LuaEnv();
         luaEnv.AddLoader(LoadLuaFile);
         luaEnv.DoString("require 'MainGame'");
