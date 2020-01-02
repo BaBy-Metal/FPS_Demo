@@ -1,0 +1,178 @@
+ManifestFileVersion: 0
+CRC: 3346285988
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: other/nv1.u3d
+      Dependencies: {}
+    Info_1:
+      Name: other/nv2.u3d
+      Dependencies: {}
+    Info_2:
+      Name: other/nv3.u3d
+      Dependencies: {}
+    Info_3:
+      Name: other/nv4.u3d
+      Dependencies: {}
+    Info_4:
+      Name: "other/\u5973\u6027\u7FC5\u8180 (2).u3d"
+      Dependencies: {}
+    Info_5:
+      Name: "other/\u5973\u6027\u9879\u94FE (1).u3d"
+      Dependencies: {}
+    Info_6:
+      Name: "other/\u5B9D\u7BB1.u3d"
+      Dependencies: {}
+    Info_7:
+      Name: "other/\u5C0F\u4F53\u529B\u4E39.u3d"
+      Dependencies: {}
+    Info_8:
+      Name: "other/\u7537\u6027 \u624B\u956F  (2).u3d"
+      Dependencies: {}
+    Info_9:
+      Name: "other/\u7537\u6027\u5934\u76D4 (2).u3d"
+      Dependencies: {}
+    Info_10:
+      Name: "other/\u7537\u6027\u6212\u6307 (2).u3d"
+      Dependencies: {}
+    Info_11:
+      Name: "other/\u7537\u6027\u6B66\u5668 (2).u3d"
+      Dependencies: {}
+    Info_12:
+      Name: "other/\u7537\u6027\u76D4\u7532 (2).u3d"
+      Dependencies: {}
+    Info_13:
+      Name: "other/\u7537\u6027\u7FC5\u8180 (1).u3d"
+      Dependencies: {}
+    Info_14:
+      Name: "other/\u7537\u6027\u9774\u5B50 (2).u3d"
+      Dependencies: {}
+    Info_15:
+      Name: "other/\u7537\u6027\u9879\u94FE (2).u3d"
+      Dependencies: {}
+    Info_16:
+      Name: "other/btn_\u52A0\u53F73.u3d"
+      Dependencies: {}
+    Info_17:
+      Name: "other/btn_\u52A0\u53F74.u3d"
+      Dependencies: {}
+    Info_18:
+      Name: "other/btn_\u5F39\u68461.u3d"
+      Dependencies: {}
+    Info_19:
+      Name: "other/btn_\u5F39\u68462.u3d"
+      Dependencies: {}
+    Info_20:
+      Name: "other/btn_\u5F39\u68463.u3d"
+      Dependencies: {}
+    Info_21:
+      Name: "other/btn_\u5F39\u68464.u3d"
+      Dependencies: {}
+    Info_22:
+      Name: "other/btn_\u6539\u540D1.u3d"
+      Dependencies: {}
+    Info_23:
+      Name: "other/btn_\u6539\u540D2.u3d"
+      Dependencies: {}
+    Info_24:
+      Name: "other/btn_\u6539\u540D3.u3d"
+      Dependencies: {}
+    Info_25:
+      Name: "other/btn_\u6539\u540D4.u3d"
+      Dependencies: {}
+    Info_26:
+      Name: "other/btn_\u6574\u74061.u3d"
+      Dependencies: {}
+    Info_27:
+      Name: "other/btn_\u6574\u74062.u3d"
+      Dependencies: {}
+    Info_28:
+      Name: "other/btn_\u6574\u74063.u3d"
+      Dependencies: {}
+    Info_29:
+      Name: "other/btn_\u6574\u74064.u3d"
+      Dependencies: {}
+    Info_30:
+      Name: "other/\u94BB\u77F3.u3d"
+      Dependencies: {}
+    Info_31:
+      Name: "other/btn_\u88C5\u59071.u3d"
+      Dependencies: {}
+    Info_32:
+      Name: "other/\u91D1\u5E01.u3d"
+      Dependencies: {}
+    Info_33:
+      Name: "other/btn_\u88C5\u59072.u3d"
+      Dependencies: {}
+    Info_34:
+      Name: "other/\u80CC\u5305.u3d"
+      Dependencies: {}
+    Info_35:
+      Name: "other/btn_\u88C5\u59073.u3d"
+      Dependencies: {}
+    Info_36:
+      Name: "other/\u7CFB\u7EDF.u3d"
+      Dependencies: {}
+    Info_37:
+      Name: "other/btn_\u88C5\u59074.u3d"
+      Dependencies: {}
+    Info_38:
+      Name: "other/\u6280\u80FD.u3d"
+      Dependencies: {}
+    Info_39:
+      Name: "other/btn_\u8BE6\u7EC6\u4FE1\u606F1.u3d"
+      Dependencies: {}
+    Info_40:
+      Name: "other/\u6218\u6597.u3d"
+      Dependencies: {}
+    Info_41:
+      Name: "other/btn_\u8BE6\u7EC6\u4FE1\u606F2.u3d"
+      Dependencies: {}
+    Info_42:
+      Name: "other/\u5934\u50CF\u5E95\u677F\u7537\u6027.u3d"
+      Dependencies: {}
+    Info_43:
+      Name: "other/btn_\u8BE6\u7EC6\u4FE1\u606F3.u3d"
+      Dependencies: {}
+    Info_44:
+      Name: "other/\u5934\u50CF\u5E95\u677F\u5973\u6027.u3d"
+      Dependencies: {}
+    Info_45:
+      Name: "other/btn_\u8BE6\u7EC6\u4FE1\u606F4.u3d"
+      Dependencies: {}
+    Info_46:
+      Name: "other/\u5546\u57CE.u3d"
+      Dependencies: {}
+    Info_47:
+      Name: "other/pic_\u4E2A\u4EBA\u4FE1\u606F.u3d"
+      Dependencies: {}
+    Info_48:
+      Name: "other/\u4EFB\u52A1.u3d"
+      Dependencies: {}
+    Info_49:
+      Name: "other/pic_\u4F20\u8BF4.u3d"
+      Dependencies: {}
+    Info_50:
+      Name: "other/pic_\u7ECF\u9A8C\u6761\u957F.u3d"
+      Dependencies: {}
+    Info_51:
+      Name: "other/pic_\u4F53\u529B.u3d"
+      Dependencies: {}
+    Info_52:
+      Name: "other/pic_\u7ECF\u9A8C\u6761\u77ED.u3d"
+      Dependencies: {}
+    Info_53:
+      Name: "other/pic_\u5386\u7EC3.u3d"
+      Dependencies: {}
+    Info_54:
+      Name: "other/pic_\u7EBF.u3d"
+      Dependencies: {}
+    Info_55:
+      Name: "other/pic_\u5929\u4F7F.u3d"
+      Dependencies: {}
+    Info_56:
+      Name: "other/pic_\u661F\u661F.u3d"
+      Dependencies: {}
+    Info_57:
+      Name: "other/pic_\u5DF2\u88C5\u5907.u3d"
+      Dependencies: {}

@@ -5,6 +5,7 @@ Animator = UnityEngine.Animator
 Animator = UnityEngine.Animator
 NavMeshAgent = UnityEngine.AI.NavMeshAgent
 GameObject = UnityEngine.GameObject
+
 EventListener = CS.EventListener
 EventTrigger = UnityEngine.EventSystems.EventTrigger
 EventTriggerType = UnityEngine.EventSystems.EventTriggerType
@@ -50,3 +51,17 @@ Component = UnityEngine.Component
 MonoBehaviour = UnityEngine.MonoBehaviour
 RectTransform = UnityEngine.RectTransform
 Button = UnityEngine.UI.Button
+
+IO=CS.System.IO
+String=CS.System.String
+StringSplitOptions=CS.System.StringSplitOptions
+Directory=IO.Directory
+Path=IO.Path
+
+UnityEditor=CS.UnityEditor
+AssetImporter=UnityEditor.AssetImporter
+BuildPipeline=UnityEditor.BuildPipeline
+BuildAssetBundleOptions=UnityEditor.BuildAssetBundleOptions
+BuildTarget=UnityEditor.BuildTarget
+
+StringDispose=CS.StringDispose

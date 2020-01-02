@@ -5,7 +5,7 @@ using UnityEngine;
 using System.IO;
 using XLua;
 
-public class LuaMgr : MonoBehaviour
+public class LuaMgr 
 {
     static LuaMgr instance = null;
     public static LuaMgr Instance
@@ -14,23 +14,26 @@ public class LuaMgr : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<LuaMgr>();
+                instance = new LuaMgr();
             }
 
             return instance;
         }
     }
 
-    LuaEnv luaEnv;
-
+    public LuaEnv luaEnv;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start(string file)
     {
+        Init();
+        luaEnv.DoString(file);
+    }
 
+    public void Init()
+    {
         luaEnv = new LuaEnv();
         luaEnv.AddLoader(LoadLuaFile);
-        luaEnv.DoString("require 'MainGame'");
     }
 
     private byte[] LoadLuaFile(ref string filepath)
@@ -46,10 +49,4 @@ public class LuaMgr : MonoBehaviour
 #endif
         return file;
     }
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 }

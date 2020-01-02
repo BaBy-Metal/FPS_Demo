@@ -29,8 +29,20 @@ function UIMgr:Open(uiType)
     c:Open()
 end
 
-function UIMgr:Close()
-    
+function UIMgr:Close(uiType)
+    local c=nil
+
+    for key, value in pairs(self.UIDic) do
+        if key==uiType then
+            c=value
+        end
+    end
+
+    if c~=nil then
+        c:Close()
+    else
+        Debug.Log("该界面未打开")
+    end
 end
 
 return Instance
