@@ -1,7 +1,8 @@
 require "Glob"
 
+local rootPath=nil
 function Init()
-    local rootPath = StringDispose.Replace(Application.dataPath,"Assets", "AB");
+    rootPath = StringDispose.Replace(Application.dataPath,"Assets", "AB");
 
     if Directory.Exists(rootPath)==false then
         Directory.CreateDirectory(rootPath);
@@ -23,15 +24,17 @@ function Infect()
         end
     end
 
+    --print(#fileMsgs)
     for key, value in pairs(fileMsgs) do
         local importer=AssetImporter.GetAtPath(value.dataPath)
         local path=nil
+        --Debug.Log(value.extension)
         if value.extension==".prefab" then
-            Debug.Log("生成预设体")
+            --Debug.Log("生成预设体")
             path = "prefab/"..value.fileName
-        else if value.extension==".png" then
-            path = "png/"..value.fileName
-        end
+        elseif value.extension==".png" or value.extension==".jpg" then
+            path = "pic/"..value.fileName
+        else
             path="other/"..value.fileName
         end
 
@@ -58,7 +61,7 @@ function SearchFiles(resPath, extension, files)
             local exten=Path.GetExtension(filesTmp[i])
             if exten~=".meta" and exten~=extension then
                 local msg=FileMsg.new(Path.GetFullPath(filesTmp[i]),Path.GetFileNameWithoutExtension(filesTmp[i]),exten)
-                files[i]=msg
+                table.insert(files,msg)
             end
         end
     end
@@ -78,26 +81,53 @@ function SearchFiles(resPath, extension, files)
 end
 
 function CreateCsv()
+    Debug.Log(rootPath)
+    local csvPath=rootPath.."/data.csv"
 
+    if File.Exists(csvPath) then
+        File.Delete(csvPath)SearchFiles()
+    end
+
+    local fileMsgs=SearchFiles(rootPath,".manifest",nil)
+    if fileMsgs==nil then
+        return
+    end
+
+    local files={}
+    for i = 0, #fileMsgs do
+        table.insert(files,fileMsgs[i])
+    end
+
+    for key, value in pairs(files) do
+        value:SetValue("AB\\","AB\\")
+    end
+
+    if pcall(function ()
+        
+    end)~=nil then
+    else
+
+    end
 end
 
-FileMsg=Glob.lplus.class()
+do
+    FileMsg=Glob.lplus.class()
 
-function FileMsg:ctor(fullPath,fileName,extension)
-    self.fullPath=fullPath
-    self.fileName=fileName
-    self.dataPath=nil
-    self.extension=extension
-    self.UnAssetsPath=nil
-end
+    function FileMsg:ctor(fullPath,fileName,extension)
+        self.fullPath=fullPath
+        self.fileName=fileName
+        self.dataPath=nil
+        self.extension=extension
+        self.UnAssetsPath=nil
+    end
 
-function FileMsg:SetValue(oldStr,newStr)
-    if self.fullPath~=nil then
-        local tmp = StringDispose.Replace(self.fullPath,oldStr,"#"..oldStr)
-        local a=StringDispose.Split(tmp,'#')
-        self.dataPath=a[a.Length-1]
-        local b = StringDispose.Split(tmp,{ newStr });
-        self.UnAssetsPath=b[b.Length-1]
-        --print(self.extension)
+    function FileMsg:SetValue(oldStr,newStr)
+        if self.fullPath~=nil then
+            local tmp = StringDispose.Replace(self.fullPath,oldStr,"#"..oldStr)
+            local a=StringDispose.Split(tmp,'#')
+            self.dataPath=a[a.Length-1]
+            local b = StringDispose.Split(tmp,{ newStr });
+            self.UnAssetsPath=b[b.Length-1]
+        end
     end
 end

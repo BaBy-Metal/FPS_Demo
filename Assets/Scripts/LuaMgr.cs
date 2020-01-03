@@ -32,8 +32,11 @@ public class LuaMgr
 
     public void Init()
     {
-        luaEnv = new LuaEnv();
-        luaEnv.AddLoader(LoadLuaFile);
+        if (luaEnv == null)
+        {
+            luaEnv = new LuaEnv();
+            luaEnv.AddLoader(LoadLuaFile);
+        }
     }
 
     private byte[] LoadLuaFile(ref string filepath)

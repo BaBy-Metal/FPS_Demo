@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2709851183
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2f838c57d21f678513636648dca51150
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/001-startmenu/bg_\u6CE8\u518C.png"
+Dependencies: []

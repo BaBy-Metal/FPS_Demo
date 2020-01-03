@@ -7,12 +7,4 @@ function UISign:Init(content)
     panel.transform:SetParent(content,false)
 end
 
-function UISign:Open()
-    panel:LSetActive(true)
-end
-
-function UISign:Close()
-    panel:LSetActive(true)
-end
-
 return UISign

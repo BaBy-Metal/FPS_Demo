@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3617585260
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bb135b38a16c3565d2e60be4be151a13
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/006-map/\u5730\u56FE-\u7CBE\u82F1.png"
+Dependencies: []

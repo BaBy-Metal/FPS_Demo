@@ -53,10 +53,13 @@ RectTransform = UnityEngine.RectTransform
 Button = UnityEngine.UI.Button
 
 IO=CS.System.IO
-String=CS.System.String
-StringSplitOptions=CS.System.StringSplitOptions
+System=CS.System
+String=System.String
+StringSplitOptions=System.StringSplitOptions
 Directory=IO.Directory
+File=IO.File
 Path=IO.Path
+StreamWriter=IO.StreamWriter
 
 UnityEditor=CS.UnityEditor
 AssetImporter=UnityEditor.AssetImporter

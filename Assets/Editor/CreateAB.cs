@@ -14,23 +14,18 @@ public class CreateAB : Editor
     [MenuItem("Tools/一键打包")]
     static void Create()
     {
-        //rootPath = Application.dataPath.Replace("Assets", "AB");
-        //if (!Directory.Exists(rootPath))
-        //{
-        //    Directory.CreateDirectory(rootPath);
-        //}
-
-        ////Infect();
-        //BuildPipeline.BuildAssetBundles(rootPath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
-
-        //CreateCsv();
-
         LuaMgr.Instance.Start("require 'HotFix/CreateAB'");
         action = LuaMgr.Instance.luaEnv.Global.Get<Action>("Init");
 
         if (action != null)
         {
             action();
+        }
+
+        if (LuaMgr.Instance.luaEnv != null)
+        {
+            //LuaMgr.Instance.luaEnv.Dispose();
+            LuaMgr.Instance.luaEnv = null;
         }
     }
 
@@ -66,7 +61,6 @@ public class CreateAB : Editor
         catch (Exception)
         {
             Debug.LogError("文件写入失败");
-            throw;
         }
         if (writer != null)
         {

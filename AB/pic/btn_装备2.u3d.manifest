@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1136037451
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3de29afc12a1a777cfb36fbedfb40056
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/002-mainmenu/btn_\u88C5\u59072.png"
+Dependencies: []

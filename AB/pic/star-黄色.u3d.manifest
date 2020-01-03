@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1052191459
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7de9acce520647bb9a044a071accd802
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/006-map/star-\u9EC4\u8272.png"
+Dependencies: []

@@ -1,16 +1,16 @@
 local UILog=Glob.lplus.class(Glob.UIBase)
 
-local uiLog
 local log_Btn;
 local sign_Btn;
 local userName;
 local userPsw;
-function UILog:Init(content)
-    uiLog=Resources.Load("UILog")
-    uiLog=GameObject.Instantiate(uiLog)
-    uiLog.transform:SetParent(content,false)
 
-    local fb = uiLog:GetComponent("FindBase")
+function UILog:Init(content)
+    self.ui=Resources.Load("UILog")
+    self.ui=GameObject.Instantiate(self.ui)
+    self.ui.transform:SetParent(content,false)
+
+    local fb = self.ui:GetComponent("FindBase")
     Debug.Log(fb)
     log_Btn=fb:GetButton("SignIn")
     Debug.Log(log_Btn)
@@ -30,14 +30,6 @@ function UILog:Init(content)
         Glob.UIMgr():Open(UIType.Sign)
         Glob.UIMgr():Close(UIType.Log)
     end)
-end
-
-function UILog:Open()
-    uiLog:SetActive(true)
-end
-
-function UILog:Close()
-    uiLog:SetActive(false)
 end
 
 return UILog

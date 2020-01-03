@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 45129126
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 59f3cd02fe93a47b8ccb1dc27c3232d1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/005-number combo/number_font.fnt
+Dependencies: []

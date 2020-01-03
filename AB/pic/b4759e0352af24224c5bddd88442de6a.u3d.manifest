@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1618828992
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5b48e1286488976fe5be3585f6d271bb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/001-startmenu/b4759e0352af24224c5bddd88442de6a.jpg
+Dependencies: []

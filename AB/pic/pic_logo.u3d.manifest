@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2002167435
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 30faa3a9e6d85fd9362092a1dd2d69e5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/001-startmenu/pic_logo.png
+Dependencies: []
