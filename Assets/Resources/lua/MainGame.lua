@@ -1,3 +1,3 @@
 require "Glob"
 
-Glob.UIMgr():Open(UIType.Log)
+Glob.UIMgr():Open(UIType.Check)

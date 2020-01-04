@@ -14,19 +14,15 @@ public class CreateAB : Editor
     [MenuItem("Tools/一键打包")]
     static void Create()
     {
-        LuaMgr.Instance.Start("require 'HotFix/CreateAB'");
-        action = LuaMgr.Instance.luaEnv.Global.Get<Action>("Init");
-
-        if (action != null)
+        rootPath = Application.dataPath.Replace("Assets", "AB");
+        if (!Directory.Exists(rootPath))
         {
-            action();
+            Directory.CreateDirectory(rootPath);
         }
 
-        if (LuaMgr.Instance.luaEnv != null)
-        {
-            //LuaMgr.Instance.luaEnv.Dispose();
-            LuaMgr.Instance.luaEnv = null;
-        }
+        Infect();
+        BuildPipeline.BuildAssetBundles(rootPath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows);
+        CreateCsv();
     }
 
     static StreamWriter writer;

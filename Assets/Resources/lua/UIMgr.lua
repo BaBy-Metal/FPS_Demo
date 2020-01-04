@@ -21,6 +21,10 @@ function UIMgr:Open(uiType)
 
     if c==nil then
         c=Glob.UIName(uiType)
+        if c==nil then
+            print("不存在该界面")
+            return
+        end
         c:Init(self.Canvas)
 
         self.UIDic[uiType]=c

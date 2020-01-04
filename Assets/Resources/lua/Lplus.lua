@@ -7,6 +7,8 @@ local Class = function(super)
 	local vtbl = _class[class_type];--创建一个基础元表 在全局类容器中开辟一块空间保存此类
 	class_type.new = function(...)--new方法 创建类的实例化
 		local obj={}
+		setmetatable(obj,{ __index = vtbl })--在new的时候又设置一个_
+
 		do
 			--确保调用一个class的new的时候调用到“基类”的new。一个递归，找到所有基类，调用一下所有类的new
 			local create
@@ -21,7 +23,6 @@ local Class = function(super)
 			create(class_type,...)--进入递归
 		end
 
-		setmetatable(obj,{ __index = vtbl })--在new的时候又设置一个__index,一个表，这个表示自己！！
 		return obj
 	end
 

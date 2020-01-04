@@ -8,6 +8,7 @@ local UIName=function (uiType)
     elseif uiType==UIType.Sign then
         return Glob.UISign.new()
     end
+    return nil
 end
 
 return UIName

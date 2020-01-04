@@ -19,10 +19,18 @@ function UILog:Init(content)
     userPsw=fb:GetInputField("Pwd")
 
     log_Btn.onClick:AddListener(function ()
-        if userName.text~="" and userPsw.text~="" then
-            Debug.Log("登录")
-            Glob.UIMgr():Open(UIType.Server)
+        local msg=Glob.Read("data")
+        if msg==nil then
+            Glob.UIMgr():Open(UIType.Sign)
             Glob.UIMgr():Close(UIType.Log)
+        else
+            if userName.text==msg[1] and userPsw.text==msg[0] then
+                Debug.Log("登录")
+                Glob.UIMgr():Open(UIType.Server)
+                Glob.UIMgr():Close(UIType.Log)
+            else
+                Glob.UIMgr():Open(UIType.LogError)
+            end
         end
     end)
 
