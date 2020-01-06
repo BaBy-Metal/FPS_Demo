@@ -7,6 +7,8 @@ local UIName=function (uiType)
         return Glob.UIChar.new()
     elseif uiType==UIType.Sign then
         return Glob.UISign.new()
+    elseif uiType==UIType.Check then
+        return Glob.UICheck.new()
     end
     return nil
 end

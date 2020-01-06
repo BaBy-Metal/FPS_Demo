@@ -46,7 +46,6 @@ public class CreateAB : Editor
         {
             writer = new StreamWriter(csvPath);
             writer.WriteLine("Version:" + "," + Application.version);
-            writer.WriteLine("IP:" + "," + "http://127.0.0.1/AB");
             foreach (var item in fileMsgs)
             {
                 byte[] file = File.ReadAllBytes(item.fullPath);
@@ -94,6 +93,10 @@ public class CreateAB : Editor
             if (item.extension.EndsWith("prefab"))
             {
                 path = "prefab/" + item.fileName;
+            }
+            else if(item.extension.EndsWith("png")|| item.extension.EndsWith("jpg"))
+            {
+                path = "pic/" + item.fileName;
             }
             else
             {

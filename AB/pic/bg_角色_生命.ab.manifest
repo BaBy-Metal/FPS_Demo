@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2833338805
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5b334123285e981aaa9fdb27715350c2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/002-mainmenu/bg_\u89D2\u8272_\u751F\u547D.png"
+Dependencies: []

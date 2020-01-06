@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 2974573198
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0974164a25384851c8f3bcdb6d0b75fc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/005-number combo/9.png
+Dependencies: []

@@ -19,7 +19,7 @@ function UILog:Init(content)
     userPsw=fb:GetInputField("Pwd")
 
     log_Btn.onClick:AddListener(function ()
-        local msg=Glob.Read("data")
+        local msg=Glob.ConfigMgr():GetMsg(Glob.LogConfig)
         if msg==nil then
             Glob.UIMgr():Open(UIType.Sign)
             Glob.UIMgr():Close(UIType.Log)

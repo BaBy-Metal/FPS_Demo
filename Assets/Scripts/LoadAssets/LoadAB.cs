@@ -13,18 +13,39 @@ using System.Collections;
 public class LoadAB : MonoBehaviour
 {
     public Slider AllLoad;
-    public Slider SingleLoad;
-    public Text AllText;
-    public Text SingleText;
 
+    /// <summary>
+    /// csv文件线程
+    /// </summary>
     Thread LoadCsv;
+
+    /// <summary>
+    /// 大文件下载路径
+    /// </summary>
     Thread LoadLargeFiles;
+
+    /// <summary>
+    /// 小文件下载路径
+    /// </summary>
     Thread LoadLettelFiles;
 
+    /// <summary>
+    /// 下载根路径
+    /// </summary>
     string loadRootPath;
+
+    /// <summary>
+    /// 所有文件总长度
+    /// </summary>
     long TotalFilesLength = 0;
 
+    /// <summary>
+    /// 需要下载的文件总数
+    /// </summary>
     int TotalNumFilesByLoad = 0;
+    /// <summary>
+    /// 已下载文件数
+    /// </summary>
     int loadedFilesNum = 0;
 
     /// <summary>
@@ -41,12 +62,14 @@ public class LoadAB : MonoBehaviour
     /// 下载小文件委托
     /// </summary>
     Action DownLoadLettelFiles;
+    string version;
 
     private void Start()
     {
         currentLen = new Queue<long>();
+        version = Application.version;
         InitShow();
-        loadRootPath = Application.streamingAssetsPath + "/AB";
+        loadRootPath = Application.persistentDataPath + "/AB";
 
         LoadCsv = new Thread(LoadVerAndCSV);
         LoadLargeFiles = new Thread(LoadLargeFilesByCsv);
@@ -97,10 +120,7 @@ public class LoadAB : MonoBehaviour
     {
         if (v != TotalFilesLength)
         {
-            AllText.text = "正在下载 FTP AB包资源：[" + loadedFilesNum + "/" + TotalNumFilesByLoad + "]";
-            SingleText.text = "进度：[" + ((v) / (float)TotalFilesLength) * 100 + "%]";
-            AllLoad.value = loadedFilesNum / TotalNumFilesByLoad;
-            SingleLoad.value = ((v) / (float)TotalFilesLength);
+            AllLoad.value = (float)loadedFilesNum / TotalNumFilesByLoad;
         }
         else
         {
@@ -113,13 +133,17 @@ public class LoadAB : MonoBehaviour
     /// </summary>
     private void EndShow()
     {
-        AllText.text = "已是最新版本";
-        SingleText.text = "进度：[100%]";
         AllLoad.value = 1;
-        SingleLoad.value = 1;
 
         Thread.Sleep(100);
-        SceneManager.LoadScene("CheckScene");
+        DontDestroyOnLoad(GameObject.Find("Start"));
+        SceneManager.LoadScene("LoadGameScene");
+
+        if (LuaMgr.Instance.luaEnv != null)
+        {
+            Action action = LuaMgr.Instance.luaEnv.Global.Get<Action>("OnStart");
+            action?.Invoke();
+        }
     }
 
     /// <summary>
@@ -128,9 +152,6 @@ public class LoadAB : MonoBehaviour
     private void InitShow()
     {
         AllLoad.value = 0;
-        SingleLoad.value = 0;
-        AllText.text = "正在校验文件中。。。";
-        SingleText.text = "请耐心等待。。。";
     }
 
     /// <summary>
@@ -175,13 +196,26 @@ public class LoadAB : MonoBehaviour
             csv = new StreamReader(csvPath);
             string line = string.Empty;
             Queue<Msg> fileQueue = new Queue<Msg>();
+            line = csv.ReadLine();
+            Debug.Log(line.Split(',')[1]);
+            Debug.Log(version);
+            if (line.Split(',')[1] == version)
+            {
+                Debug.LogError("版本相同无需下载");
+                return;
+            }
+
+            line = string.Empty;
 
             while ((line = csv.ReadLine()) != null)
             {
                 string[] tmpFile = line.Split(',');
                 Msg Msg = new Msg(tmpFile[0], tmpFile[1], tmpFile[2]);
+
                 fileQueue.Enqueue(Msg);
+                line = string.Empty;
             }
+            Debug.Log(fileQueue.Count);
 
             ConcurrentQueue<Msg> needLoadFiles = new ConcurrentQueue<Msg>();
 
@@ -215,9 +249,9 @@ public class LoadAB : MonoBehaviour
             while (needLoadFiles.Count > 0)
             {
                 bool IsLoad = needLoadFiles.TryDequeue(out Msg file);
-                if (!IsLoad)
+                if (IsLoad)
                 {
-                    if (file.fileLen > 1024)
+                    if (file.fileLen > 1024 * 10)
                     {
                         largeFiles.Enqueue(file);
                     }
@@ -230,19 +264,19 @@ public class LoadAB : MonoBehaviour
                 if (needLoadFiles.Count == 0) break;
             }
 
-            StartCoroutine(StartLoadLettle(lettleFiles));
+            Debug.Log(lettleFiles.Count);
+            Debug.Log(largeFiles.Count);
 
-            while (largeFiles.Count > 0)
+            while (lettleFiles.Count > 0)
             {
-                DownLoadLargeFiles += delegate ()
+                DownLoadLettelFiles += delegate ()
                 {
                     //Debug.Log("执行委托");
                     int downloadCount = 3;
 
-                    bool IsLoad = largeFiles.TryDequeue(out Msg file);
-                    Debug.Log(loadRootPath + "/" + file.fileName);
+                    bool IsLoad = lettleFiles.TryDequeue(out Msg file);
 
-                    if (!IsLoad)
+                    if (IsLoad)
                     {
                         BBBB:
                         bool IsDownLoad = HttpTool.DownLoad(loadRootPath + "/" + file.httpDownLoadPath, file.fileName);
@@ -257,6 +291,45 @@ public class LoadAB : MonoBehaviour
                         currentFileLen += file.fileLen;
                         loadedFilesNum++;
                         currentLen.Enqueue(currentFileLen);
+                    }
+                };
+            }
+
+            if (lettleFiles.Count <= 0)
+            {
+                currentLen.Enqueue(currentFileLen);
+                DownLoadLargeFiles = null;
+            }
+
+            while (largeFiles.Count > 0)
+            {
+                DownLoadLargeFiles += delegate ()
+                {
+                    //Debug.Log("执行委托");
+                    int downloadCount = 3;
+
+                    bool IsLoad = largeFiles.TryDequeue(out Msg file);
+                    Debug.Log(file.httpDownLoadPath);
+                    string tmpPath = loadRootPath + "/" + file.httpDownLoadPath;
+
+                    if (IsLoad)
+                    {
+                        BBBB:
+                        if (tmpPath != null)
+                        {
+                            bool IsDownLoad = HttpTool.DownLoad(tmpPath, file.fileName);
+                            if (!IsDownLoad)
+                            {
+                                if (downloadCount-- > 0)
+                                    goto BBBB;
+                                else
+                                    return;
+                            }
+
+                            currentFileLen += file.fileLen;
+                            loadedFilesNum++;
+                            currentLen.Enqueue(currentFileLen);
+                        }
                     }
                 };
             }
@@ -289,40 +362,7 @@ public class LoadAB : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartLoadLettle(ConcurrentQueue<Msg> lettleFiles)
     {
-        while (lettleFiles.Count > 0)
-        {
-            DownLoadLettelFiles += delegate ()
-            {
-                //Debug.Log("执行委托");
-                int downloadCount = 3;
 
-                bool IsLoad = lettleFiles.TryDequeue(out Msg file);
-                Debug.Log(loadRootPath + "/" + file.fileName);
-
-                if (!IsLoad)
-                {
-                    BBBB:
-                    bool IsDownLoad = HttpTool.DownLoad(loadRootPath + "/" + file.httpDownLoadPath, file.fileName);
-                    if (!IsDownLoad)
-                    {
-                        if (downloadCount-- > 0)
-                            goto BBBB;
-                        else
-                            return;
-                    }
-
-                    currentFileLen += file.fileLen;
-                    loadedFilesNum++;
-                    currentLen.Enqueue(currentFileLen);
-                }
-            };
-        }
-
-        if (lettleFiles.Count <= 0)
-        {
-            currentLen.Enqueue(currentFileLen);
-            DownLoadLargeFiles = null;
-        }
 
         yield return null;
     }
@@ -366,8 +406,8 @@ public class Msg
     public Msg(string a0, string a1, string a2)
     {
         fileName = a0;
-        fileLen = long.Parse(a1);
-        md5 = a2;
+        fileLen = long.Parse(a2);
+        md5 = a1;
 
         char chr = GetChar();
         httpDownLoadPath = fileName.Replace(chr, '/');

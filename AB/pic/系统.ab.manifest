@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1476858310
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f5940ba28f8bc1c1662635d7cfaf4c52
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/002-mainmenu/\u7CFB\u7EDF.png"
+Dependencies: []

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1380941979
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ac1b1acf2515cae89bc54a2d34a99242
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/headicon/nan4.png
+Dependencies: []

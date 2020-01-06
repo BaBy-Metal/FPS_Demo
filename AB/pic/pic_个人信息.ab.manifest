@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3676464424
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 38c69078b7b386cd7b0843b92a2094b9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/002-mainmenu/pic_\u4E2A\u4EBA\u4FE1\u606F.png"
+Dependencies: []

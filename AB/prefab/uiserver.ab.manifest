@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 3285264712
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b2d6fa0c04568e9d92656207c997cc19
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b6ba0e30ef66fd54ee9e7a5db2a20eb4
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7aa31eedda7d6e14989590ff1da5631d, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/UIServer.prefab
+Dependencies: []

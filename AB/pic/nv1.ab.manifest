@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3823239069
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f7920e495ace0bcaf4b54057cb7696cb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/headicon/nv1.png
+Dependencies: []

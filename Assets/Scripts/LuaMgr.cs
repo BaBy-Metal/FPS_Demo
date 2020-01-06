@@ -23,13 +23,6 @@ public class LuaMgr
 
     public LuaEnv luaEnv;
 
-    // Start is called before the first frame update
-    public void Start(string file)
-    {
-        Init();
-        luaEnv.DoString(file);
-    }
-
     public void Init()
     {
         if (luaEnv == null)

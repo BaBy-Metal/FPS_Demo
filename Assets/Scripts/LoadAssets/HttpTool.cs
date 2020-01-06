@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Net;
 using System.IO;
 using System;
+using System.Threading;
 
 public class HttpTool
 {
@@ -12,14 +13,16 @@ public class HttpTool
     static HttpWebRequest request;
     static FileStream fileStream;
     static Stream stream;
-    static string rootUri = "http://127.0.0.1/";
+    static string rootUri = "http://127.0.0.1/AB/";
 
     public static bool DownLoad(string fileFullPath, string fileName, long fileLenth = 0)
     {
         bool IsFlag = false;
         string fullUrl = rootUri + fileName;
+        Debug.Log(fullUrl);
         Connect(fullUrl);
 
+        Debug.Log(fileFullPath);
         string dirPath = Path.GetDirectoryName(fileFullPath);
         if (!Directory.Exists(dirPath))
         {
@@ -38,6 +41,7 @@ public class HttpTool
                 loadLen += fileLen;
                 fileStream.Write(buffer, 0, fileLen);
                 fileLen = stream.Read(buffer, 0, buffer.Length);
+                Thread.Sleep(5);
             }
 
             IsFlag = true;
@@ -46,7 +50,6 @@ public class HttpTool
         {
             Debug.LogError("文件下载失败");
             IsFlag = false;
-            throw;
         }
         finally
         {

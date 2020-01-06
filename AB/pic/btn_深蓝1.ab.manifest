@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2483545618
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0ec186ab83ce3d56c36ca4ed94ce019d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/001-startmenu/btn_\u6DF1\u84DD1.png"
+Dependencies: []

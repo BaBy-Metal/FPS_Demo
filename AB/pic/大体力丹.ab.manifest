@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2761833803
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 30b7f9c2d5ba816e28f222045ff7a9c3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- "Assets/Resources/equip/\u5927\u4F53\u529B\u4E39.png"
+Dependencies: []
