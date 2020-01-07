@@ -4,22 +4,18 @@ function LogConfig:Init()
     self.msg=Glob.Read("data")
     if self.msg==nil then
         local a=function ()
-            local LogClass = Glob.lplus.class()
-            LogClass.ctor=function (name,pwd)
-                self.name=name
-                self.pwd=pwd
-            end
-
-            local c={LogClass.new("cth","123"),LogClass.new("chen","123456"),LogClass.new("321","111")}
-            Debug.Log(c[1].name)
+            local c={Glob.LogClass.new("cth","123"),Glob.LogClass.new("chen","123456"),Glob.LogClass.new("321","111")}
+            Debug.Log(c[1])
             return c
         end
         self.msg=a()
-        print(self.msg[1])
+        Debug.Log(self.msg[1].name)
         Glob.Write("data",self.msg)
     end
 
-    return self.msg
+    local c=self.msg
+    Debug.Log(c[1].name)
+    return c
 end
 
 return LogConfig

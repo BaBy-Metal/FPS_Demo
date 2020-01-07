@@ -19,18 +19,22 @@ function UILog:Init(content)
     userPsw=fb:GetInputField("Pwd")
 
     log_Btn.onClick:AddListener(function ()
-        local msg=Glob.ConfigMgr():GetMsg(Glob.LogConfig)
+        local msg=Glob.ConfigMgr():GetMsg(UIType.Log)
         if msg==nil then
             Glob.UIMgr():Open(UIType.Sign)
             Glob.UIMgr():Close(UIType.Log)
         else
-            if userName.text==msg[1] and userPsw.text==msg[0] then
-                Debug.Log("登录")
-                Glob.UIMgr():Open(UIType.Server)
-                Glob.UIMgr():Close(UIType.Log)
-            else
-                Glob.UIMgr():Open(UIType.LogError)
+            for key, value in pairs(msg) do
+                if userName.text==value.name and userPsw.text==value.pwd then
+                    Debug.Log("登录")
+                    Glob.UIMgr():Open(UIType.Server)
+                    Glob.UIMgr():Close(UIType.Log)
+
+                    return
+                end
             end
+
+            Debug.Log("登录密码有误，请重新登录")
         end
     end)
 

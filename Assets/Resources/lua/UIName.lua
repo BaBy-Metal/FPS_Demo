@@ -9,6 +9,8 @@ local UIName=function (uiType)
         return Glob.UISign.new()
     elseif uiType==UIType.Check then
         return Glob.UICheck.new()
+    elseif uiType==UIType.Prompt then
+        return Glob.UIPrompt.new()
     end
     return nil
 end

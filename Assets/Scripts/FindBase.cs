@@ -93,6 +93,11 @@ public class FindBase : MonoBehaviour
         return getCompent<Toggle>(objName);
     }
 
+    public RectTransform GetRectTransform(string objName)
+    {
+        return getCompent<RectTransform>(objName);
+    }
+
     public Scrollbar GetScrollbar(string objName)
     {
         return getCompent<Scrollbar>(objName);

@@ -68,3 +68,4 @@ BuildAssetBundleOptions=UnityEditor.BuildAssetBundleOptions
 BuildTarget=UnityEditor.BuildTarget
 
 StringDispose=CS.StringDispose
+Time=UnityEngine.Time

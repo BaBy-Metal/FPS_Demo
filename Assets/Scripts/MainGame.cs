@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using XLua;
 
 [CSharpCallLua]
@@ -23,12 +24,13 @@ public class MainGame : MonoBehaviour
     {
         MessageMgr.Instance.Init();
         LuaMgr.Instance.Init();
+        LuaMgr.Instance.luaEnv.Global.Set("this", this);
+
         LuaMgr.Instance.luaEnv.DoString("require 'MainGame'");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-
+        OnUpdate?.Invoke();
     }
 }
