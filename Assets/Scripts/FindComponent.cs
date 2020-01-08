@@ -38,6 +38,13 @@ public class FindComponent : MonoBehaviour
     /// <returns></returns>
     private GameObject GetGameObject(string name)
     {
+        Button[] buttons = FindObjectsOfType<Button>();
+
+        foreach (var item in buttons)
+        {
+            string _name = item.name;
+        }
+
         GameObject obj = null;
         Dictionary<int, Transform> finds = FindTransforms<Transform>(this.transform);
         foreach (int Iter in finds.Keys)

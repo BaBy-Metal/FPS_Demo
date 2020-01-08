@@ -16,7 +16,28 @@ namespace XLua
     public partial class DelegateBridge : DelegateBridgeBase
     {
 		
-		public void __Gen_Delegate_Imp0(bool p0)
+		public void __Gen_Delegate_Imp0()
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
+                
+                
+                PCall(L, 0, 0, errFunc);
+                
+                
+                
+                LuaAPI.lua_settop(L, errFunc - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public void __Gen_Delegate_Imp1(bool p0)
 		{
 #if THREAD_SAFE || HOTFIX_ENABLE
             lock (luaEnv.luaEnvLock)
@@ -28,27 +49,6 @@ namespace XLua
                 LuaAPI.lua_pushboolean(L, p0);
                 
                 PCall(L, 1, 0, errFunc);
-                
-                
-                
-                LuaAPI.lua_settop(L, errFunc - 1);
-                
-#if THREAD_SAFE || HOTFIX_ENABLE
-            }
-#endif
-		}
-        
-		public void __Gen_Delegate_Imp1()
-		{
-#if THREAD_SAFE || HOTFIX_ENABLE
-            lock (luaEnv.luaEnvLock)
-            {
-#endif
-                RealStatePtr L = luaEnv.rawL;
-                int errFunc = LuaAPI.pcall_prepare(L, errorFuncRef, luaReference);
-                
-                
-                PCall(L, 0, 0, errFunc);
                 
                 
                 
@@ -180,19 +180,24 @@ namespace XLua
 		public override Delegate GetDelegateByType(Type type)
 		{
 		
-		    if (type == typeof(UnityEngine.Events.UnityAction<bool>))
+		    if (type == typeof(Function))
 			{
-			    return new UnityEngine.Events.UnityAction<bool>(__Gen_Delegate_Imp0);
+			    return new Function(__Gen_Delegate_Imp0);
 			}
 		
 		    if (type == typeof(System.Action))
 			{
-			    return new System.Action(__Gen_Delegate_Imp1);
+			    return new System.Action(__Gen_Delegate_Imp0);
 			}
 		
 		    if (type == typeof(UnityEngine.Events.UnityAction))
 			{
-			    return new UnityEngine.Events.UnityAction(__Gen_Delegate_Imp1);
+			    return new UnityEngine.Events.UnityAction(__Gen_Delegate_Imp0);
+			}
+		
+		    if (type == typeof(UnityEngine.Events.UnityAction<bool>))
+			{
+			    return new UnityEngine.Events.UnityAction<bool>(__Gen_Delegate_Imp1);
 			}
 		
 		    if (type == typeof(System.Func<double, double, double>))

@@ -33,3 +33,8 @@ UIType={
     Check=6,
     Prompt=7
 }
+
+Layer={
+    Main=0,
+    Func=1
+}

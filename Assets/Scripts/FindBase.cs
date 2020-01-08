@@ -64,10 +64,10 @@ public class FindBase : MonoBehaviour
     {
         return getCompent<Button>(objName);
     }
-    //public UIEvent GetUIEvent(string objName)
-    //{
-    //    return getCompent<UIEvent>(objName);
-    //}
+    public UIEvent GetUIEvent(string objName)
+    {
+        return getCompent<UIEvent>(objName);
+    }
     public Text GetText(string objName)
     {
         return getCompent<Text>(objName);
