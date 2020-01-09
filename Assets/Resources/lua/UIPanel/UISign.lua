@@ -19,7 +19,14 @@ function UISign:Init(content)
     SignOn.onClick:AddListener(function ()
         if UserName.text~="" and UserPwd.text~="" then
             local msg=Glob.LogClass.new(UserName.text,UserPwd.text)
-            Glob.Write("data",msg)
+            local allMsg = Glob.Read("data")
+            Debug.Log(allMsg)
+            if #allMsg>0 then
+                table.insert(allMsg,msg)
+            else
+                allMsg={msg}
+            end
+            Glob.Write("data",allMsg)
 
             Glob.UIMgr():Open(UIType.Prompt)
         end

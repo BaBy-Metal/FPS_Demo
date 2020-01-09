@@ -9,6 +9,8 @@ function UIServer:Init(content)
     self.ui=GameObject.Instantiate(self.ui)
     self.ui.transform:SetParent(content,false)
 
+    local msg=Glob.ConfigMgr():GetMsg(UIType.Server)
+    
     local fb=self.ui:GetComponent("FindBase")
     local Content=fb:GetRectTransform("Content")
     local Image1=fb:GetImage("Image1")
@@ -16,6 +18,12 @@ function UIServer:Init(content)
     local Text1=fb:GetText("Text1")
     local Text2=fb:GetText("Text2")
     local uiEvent=fb:GetUIEvent("Image2")
+    local close_Btn=fb:GetButton("Close1")
+
+    close_Btn.onClick:AddListener(function ()
+        Glob.UIMgr():Open(UIType.Log)
+        Glob.UIMgr():Close(UIType.Server)
+    end)
 
     uiEvent:AddFunction(EventTriggerType.PointerClick,function ()
         localTime = Time.realtimeSinceStartup;
@@ -27,7 +35,7 @@ function UIServer:Init(content)
             firstTime = localTime;
         end
     end)
-    local msg=Glob.ConfigMgr():GetMsg(UIType.Server)
+
     --Debug.Log(msg[1].state)
     for key, value in pairs(msg) do
         local item=Resources.Load("ServerItem")

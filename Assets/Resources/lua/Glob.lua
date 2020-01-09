@@ -8,6 +8,7 @@ Glob.Write=require "Json/WriteJson"
 Glob.Read=require "Json/ReadJson"
 Glob.LogClass=require "Json/LogClass"
 Glob.ServerData=require "Json/ServerData"
+Glob.CharactorData=require "Json/CharactorData"
 
 Glob.UIMgr=require "UIMgr"
 Glob.UIBase=require "UIBase"
@@ -23,6 +24,7 @@ Glob.ConfigBase=require "Config/ConfigBase"
 Glob.ConfigMgr=require "Config/ConfigMgr"
 Glob.LogConfig=require "Config/LogConfig"
 Glob.ServerConfig=require "Config/ServerConfig"
+Glob.CharactorConfig=require "Config/CharactorConfig"
 
 UIType={
     Log=1,

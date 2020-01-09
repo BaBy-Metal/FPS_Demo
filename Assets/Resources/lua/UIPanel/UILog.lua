@@ -23,6 +23,8 @@ function UILog:Init(content)
             Glob.UIMgr():Close(UIType.Log)
         else
             for key, value in pairs(msg) do
+                Debug.Log(value.name)
+                Debug.Log(value.pwd)
                 if userName.text==value.name and userPsw.text==value.pwd then
                     Debug.Log("登录")
                     Glob.UIMgr():Open(UIType.Server)

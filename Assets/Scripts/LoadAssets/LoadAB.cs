@@ -197,8 +197,7 @@ public class LoadAB : MonoBehaviour
             string line = string.Empty;
             Queue<Msg> fileQueue = new Queue<Msg>();
             line = csv.ReadLine();
-            Debug.Log(line.Split(',')[1]);
-            Debug.Log(version);
+
             if (line.Split(',')[1] == version)
             {
                 Debug.LogError("版本相同无需下载");
