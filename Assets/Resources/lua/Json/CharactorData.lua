@@ -1,11 +1,11 @@
 local CharactorData = Glob.lplus.class()
 
-function CharactorData:ctor(_name,_career,_type,_pic,_prefab)
+function CharactorData:ctor(_name,_career,_id,_pic,_type)
     self.name=_name
     self.career=_career
-    self._type=_type
+    self.id=_id
     self.headpic=_pic
-    self.prefab=_prefab
+    self._type=_type
 end
 
 return CharactorData

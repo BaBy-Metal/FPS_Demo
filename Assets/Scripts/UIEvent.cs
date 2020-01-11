@@ -8,7 +8,6 @@ using UnityEngine.UI;
 /// <summary>
 /// UI  界面事件
 /// </summary>
-/// 
 [AddComponentMenu("Tools/UIEvent")]
 public class UIEvent : EventTrigger
 {
@@ -26,14 +25,14 @@ public class UIEvent : EventTrigger
     /// </summary>
     /// <param name="type"></param>
     /// <param name="Fun"></param>
-    public void AddFunction(EventTriggerType type, System.Action<GameObject> Fun)
-    { 
+    public void AddFunction(EventTriggerType type, Action<GameObject> Fun)
+    {
         keyActions[type] = Fun;
     }
     /// <summary>
     /// 函数回调字典
     /// </summary>
-    private Dictionary<EventTriggerType, System.Action<GameObject>> keyActions = new Dictionary<EventTriggerType, System.Action<GameObject>>();
+    private Dictionary<EventTriggerType, Action<GameObject>> keyActions = new Dictionary<EventTriggerType, System.Action<GameObject>>();
     //
     // 摘要:
     //     Called before a drag is started.
@@ -71,7 +70,13 @@ public class UIEvent : EventTrigger
     // 参数:
     //   eventData:
     //     Current event data.
-    public override void OnDrag(PointerEventData eventData) { if (keyActions.ContainsKey(EventTriggerType.Drag)) { keyActions[EventTriggerType.Drag](gameObject); } }
+    public override void OnDrag(PointerEventData eventData)
+    {
+        if (keyActions.ContainsKey(EventTriggerType.Drag))
+        {
+            keyActions[EventTriggerType.Drag](gameObject);
+        }
+    }
     //
     // 摘要:
     //     Called by the EventSystem when an object accepts a drop.
@@ -87,7 +92,7 @@ public class UIEvent : EventTrigger
     // 参数:
     //   eventData:
     //     Current event data.
-    public override void OnEndDrag(PointerEventData eventData) { if (keyActions.ContainsKey(EventTriggerType.EndDrag)) { keyActions[EventTriggerType.EndDrag](gameObject); } }
+    public override void OnEndDrag(PointerEventData eventData) { if (keyActions.ContainsKey(EventTriggerType.EndDrag)) { keyActions[EventTriggerType.EndDrag](eventData.pointerEnter); } }
     //
     // 摘要:
     //     Called by the EventSystem when a drag has been found, but before it is valid

@@ -51,6 +51,7 @@ Component = UnityEngine.Component
 MonoBehaviour = UnityEngine.MonoBehaviour
 RectTransform = UnityEngine.RectTransform
 Button = UnityEngine.UI.Button
+UIEvent=CS.UIEvent
 
 IO=CS.System.IO
 System=CS.System

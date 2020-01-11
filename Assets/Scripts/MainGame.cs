@@ -25,8 +25,9 @@ public class MainGame : MonoBehaviour
         MessageMgr.Instance.Init();
         LuaMgr.Instance.Init();
         LuaMgr.Instance.luaEnv.Global.Set("this", this);
-
         LuaMgr.Instance.luaEnv.DoString("require 'MainGame'");
+
+        //gameObject.GetComponent<Toggle>()
     }
 
     private void Update()

@@ -11,6 +11,8 @@ local UIName=function (uiType)
         return Glob.UICheck.new()
     elseif uiType==UIType.Prompt then
         return Glob.UIPrompt.new()
+    elseif uiType==UIType.Bag then
+        return Glob.UIBag.new()
     end
     return nil
 end

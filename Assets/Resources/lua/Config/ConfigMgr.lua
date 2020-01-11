@@ -14,6 +14,7 @@ function ConfigMgr:Init()
     configDic[UIType.Log]=Glob.LogConfig.new():Init()
     configDic[UIType.Server]=Glob.ServerConfig.new():Init()
     configDic[UIType.Charactor]=Glob.CharactorConfig.new():Init()
+    configDic[UIType.Bag]=Glob.BagConfig.new():Init()
 end
 
 function ConfigMgr:GetMsg(_type)

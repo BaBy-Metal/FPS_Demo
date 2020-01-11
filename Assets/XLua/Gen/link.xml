@@ -57,4 +57,9 @@
 		
 	</assembly>
 
+	<assembly fullname="UnityEngine.UnityWebRequestModule">
+	    <type fullname="UnityEngine.Networking.UnityWebRequest" preserve="all"/>
+		
+	</assembly>
+
 </linker>

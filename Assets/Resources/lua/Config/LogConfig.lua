@@ -9,12 +9,11 @@ function LogConfig:Init()
             return c
         end
         self.msg=a()
-        Debug.Log(self.msg[1].name)
         Glob.Write("data",self.msg)
     end
 
     local c=self.msg
-    Debug.Log(c["name"])
+    Debug.Log(c[1].name)
     return c
 end
 

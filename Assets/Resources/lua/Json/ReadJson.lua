@@ -1,5 +1,4 @@
 local json=function (fileName)
-    Debug.Log(Application.persistentDataPath)
     local file=io.open(Application.persistentDataPath.."/lua/"..fileName..".txt",'r')
     if file==nil then
         print("不存在该文件")

@@ -29,8 +29,8 @@ function UIServer:Init(content)
         localTime = Time.realtimeSinceStartup;
 
         if (localTime - firstTime < Interval) then
-            Glob.UIMgr():Open(UIType.Charactor)
             Glob.UIMgr():Close(UIType.Server)
+            Glob.UIMgr():Open(UIType.Charactor)
         else
             firstTime = localTime;
         end
@@ -41,12 +41,15 @@ function UIServer:Init(content)
         local item=Resources.Load("ServerItem")
         item=GameObject.Instantiate(item)
         item.transform:SetParent(Content.transform,false)
-        item.name="ServerItem"
+        item.name=value.name
+        local event=item:GetComponent("UIEvent")
 
         local itemfb=item:GetComponent("FindBase")
         local text=itemfb:GetText("Text")
-        local image=itemfb:GetImage("ServerItem")
-        local Btn=itemfb:GetButton("ServerItem")
+        local image=itemfb:GetImage(item.name)
+        local Btn=itemfb:GetButton(item.name)
+
+        event:AddFunction(EventTriggerType.PointerClick,Show)
 
         text.text=value.name
         Btn.onClick:AddListener(function ()
@@ -71,6 +74,10 @@ function UIServer:Init(content)
         Image2.sprite=Image1.sprite
         Text2.text=Text1.text
     end
+end
+
+function Show(obj)
+    Debug.Log("这是服务器："..obj.name)
 end
 
 return UIServer
