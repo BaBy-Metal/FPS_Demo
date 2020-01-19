@@ -30,6 +30,8 @@ function UISign:Init(content)
 
             Glob.UIMgr():Open(UIType.Prompt)
         end
+
+        --Glob.ConfigMgr():RefreshMsg(UIType.Log)
     end)
 end
 

@@ -92,7 +92,13 @@ public class UIEvent : EventTrigger
     // 参数:
     //   eventData:
     //     Current event data.
-    public override void OnEndDrag(PointerEventData eventData) { if (keyActions.ContainsKey(EventTriggerType.EndDrag)) { keyActions[EventTriggerType.EndDrag](eventData.pointerEnter); } }
+    public override void OnEndDrag(PointerEventData eventData)
+    {
+        if (keyActions.ContainsKey(EventTriggerType.EndDrag))
+        {
+            keyActions[EventTriggerType.EndDrag](eventData.pointerEnter);
+        }
+    }
     //
     // 摘要:
     //     Called by the EventSystem when a drag has been found, but before it is valid

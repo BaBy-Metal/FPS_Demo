@@ -15,6 +15,7 @@ function CharactorConfig:Init()
     end
 
     local c=self.msg
+    Debug.Log("+++++++++++++++"..c[1].name)
     return c
 end
 

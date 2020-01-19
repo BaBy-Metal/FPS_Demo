@@ -22,6 +22,7 @@ Glob.UISign=require "UIPanel/UISign"
 Glob.UICheck=require "UIPanel/UICheck"
 Glob.UIPrompt=require "UIPanel/UIPrompt"
 Glob.UIBag=require "UIPanel/UIBag"
+Glob.UIInsRole=require "UIPanel/UI_Ins_Role"
 
 Glob.ConfigBase=require "Config/ConfigBase"
 Glob.ConfigMgr=require "Config/ConfigMgr"
@@ -41,10 +42,11 @@ UIType={
     LogError=5,
     Check=6,
     Prompt=7,
-    Bag=8
+    Bag=8,
+    CreateRole=9
 }
 
 Layer={
-    Main=0,
-    Func=1
+    Main=1,
+    Func=2
 }

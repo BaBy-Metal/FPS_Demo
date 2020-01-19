@@ -1,6 +1,7 @@
 local UIBase=Glob.lplus.class()
 
 UIBase.ui=nil
+UIBase.uiLay=nil
 --UIBase.UILayer=Layer.Main
 function UIBase:Init()
     

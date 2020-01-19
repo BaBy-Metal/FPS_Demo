@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+[AddComponentMenu("Tools/BBB")]
 /// <summary>
 /// 查找组件
 /// </summary>
@@ -85,7 +86,8 @@ public class FindComponent : MonoBehaviour
     /// <returns></returns>
     public Component GetComponent(string objName, string ComponentType)
     {
-        if (ComponentType == "")
+        string type = ComponentType.ToLower();
+        if (type == "")
         {
             return getComponent<Component>(objName);
         }
@@ -93,34 +95,34 @@ public class FindComponent : MonoBehaviour
         Component d = null;
         switch (ComponentType)
         {
-            case "Transform": { d = getComponent<Transform>(objName); } break;
-            case "Button": { d = getComponent<Button>(objName); } break;
+            case "transform": { d = getComponent<Transform>(objName); } break;
+            case "button": { d = getComponent<Button>(objName); } break;
             //case "UIEvent": { d = getComponent<UIEvent>(objName); } break;
-            case "Text": { d = getComponent<Text>(objName); } break;
-            case "Image": { d = getComponent<Image>(objName); } break;
-            case "InputField": { d = getComponent<InputField>(objName); } break;
-            case "RawImage": { d = getComponent<RawImage>(objName); } break;
-            case "Slider": { d = getComponent<Slider>(objName); } break;
-            case "Toggle": { d = getComponent<Toggle>(objName); } break;
-            case "Scrollbar": { d = getComponent<Scrollbar>(objName); } break;
-            case "ScrollRect": { d = getComponent<ScrollRect>(objName); } break;
-            case "Dropdown": { d = getComponent<Dropdown>(objName); } break;
-            case "Camera": { d = getComponent<Camera>(objName); } break;
-            case "Light": { d = getComponent<Light>(objName); } break;
-            case "AudioListener": { d = getComponent<AudioListener>(objName); } break;
-            case "Canvas": { d = getComponent<Canvas>(objName); } break;
-            case "CanvasScaler": { d = getComponent<CanvasScaler>(objName); } break;
-            case "GraphicRaycaster": { d = getComponent<GraphicRaycaster>(objName); } break;
-            case "EventSystem": { d = getComponent<EventSystem>(objName); } break;
-            case "StandaloneInputModule": { d = getComponent<StandaloneInputModule>(objName); } break;
-            case "MeshFilter": { d = getComponent<MeshFilter>(objName); } break;
-            case "MeshRenderer": { d = getComponent<MeshRenderer>(objName); } break;
-            case "BoxCollider": { d = getComponent<BoxCollider>(objName); } break;
-            case "BoxCollider2D": { d = getComponent<BoxCollider2D>(objName); } break;
-            case "Rigidbody": { d = getComponent<Rigidbody>(objName); } break;
-            case "AudioSource": { d = getComponent<AudioSource>(objName); } break;
-            case "ParticleSystem": { d = getComponent<ParticleSystem>(objName); } break;
-            case "Animator": { d = getComponent<Animator>(objName); } break;
+            case "text": { d = getComponent<Text>(objName); } break;
+            case "image": { d = getComponent<Image>(objName); } break;
+            case "inputfield": { d = getComponent<InputField>(objName); } break;
+            case "rawimage": { d = getComponent<RawImage>(objName); } break;
+            case "slider": { d = getComponent<Slider>(objName); } break;
+            case "toggle": { d = getComponent<Toggle>(objName); } break;
+            case "scrollbar": { d = getComponent<Scrollbar>(objName); } break;
+            case "scrollrect": { d = getComponent<ScrollRect>(objName); } break;
+            case "dropdown": { d = getComponent<Dropdown>(objName); } break;
+            case "camera": { d = getComponent<Camera>(objName); } break;
+            case "light": { d = getComponent<Light>(objName); } break;
+            case "audiolistener": { d = getComponent<AudioListener>(objName); } break;
+            case "canvas": { d = getComponent<Canvas>(objName); } break;
+            case "canvasscaler": { d = getComponent<CanvasScaler>(objName); } break;
+            case "graphiceaycaster": { d = getComponent<GraphicRaycaster>(objName); } break;
+            case "eventSystem": { d = getComponent<EventSystem>(objName); } break;
+            case "standaloneinputmodule": { d = getComponent<StandaloneInputModule>(objName); } break;
+            case "meshfilter": { d = getComponent<MeshFilter>(objName); } break;
+            case "meshrenderer": { d = getComponent<MeshRenderer>(objName); } break;
+            case "boxcollider": { d = getComponent<BoxCollider>(objName); } break;
+            case "boxcollider2d": { d = getComponent<BoxCollider2D>(objName); } break;
+            case "rigidbody": { d = getComponent<Rigidbody>(objName); } break;
+            case "audiosource": { d = getComponent<AudioSource>(objName); } break;
+            case "particlesystem": { d = getComponent<ParticleSystem>(objName); } break;
+            case "animator": { d = getComponent<Animator>(objName); } break;
         }
         return d;
     }

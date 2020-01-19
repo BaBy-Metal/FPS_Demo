@@ -11,16 +11,24 @@ end
 
 local configDic={}
 function ConfigMgr:Init()
-    configDic[UIType.Log]=Glob.LogConfig.new():Init()
-    configDic[UIType.Server]=Glob.ServerConfig.new():Init()
-    configDic[UIType.Charactor]=Glob.CharactorConfig.new():Init()
-    configDic[UIType.Bag]=Glob.BagConfig.new():Init()
+    configDic[UIType.Log]=Glob.LogConfig.new()
+    configDic[UIType.Server]=Glob.ServerConfig.new()
+    configDic[UIType.Charactor]=Glob.CharactorConfig.new()
+    configDic[UIType.Bag]=Glob.BagConfig.new()
 end
 
 function ConfigMgr:GetMsg(_type)
     for key, value in pairs(configDic) do
         if key==_type then
-            return value
+            return value:Init()
+        end
+    end
+end
+
+function ConfigMgr:RefreshMsg(enum)
+    for key, value in pairs(configDic) do
+        if key==enum then
+            configDic[key]=value:Init()
         end
     end
 end

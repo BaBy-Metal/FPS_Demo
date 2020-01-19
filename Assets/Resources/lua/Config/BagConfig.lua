@@ -17,6 +17,7 @@ function BagConfig:Init()
     end
 
     local c=self.msg
+    Debug.Log("+++++++++++++++"..c[1].text)
     return c
 end
 
