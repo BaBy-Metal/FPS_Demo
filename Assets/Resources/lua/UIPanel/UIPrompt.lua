@@ -10,7 +10,7 @@ function UIPrompt:Open()
     if self.ui~=nil then
         uiSelf=self.ui
         self.ui:SetActive(true)
-        this.OnUpdate=self.AutoClose
+        this.OnUpdate=self.Auto/9
     end
 end
 

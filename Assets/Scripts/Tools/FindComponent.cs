@@ -39,13 +39,6 @@ public class FindComponent : MonoBehaviour
     /// <returns></returns>
     private GameObject GetGameObject(string name)
     {
-        Button[] buttons = FindObjectsOfType<Button>();
-
-        foreach (var item in buttons)
-        {
-            string _name = item.name;
-        }
-
         GameObject obj = null;
         Dictionary<int, Transform> finds = FindTransforms<Transform>(this.transform);
         foreach (int Iter in finds.Keys)
@@ -84,6 +77,7 @@ public class FindComponent : MonoBehaviour
     /// <param name="objName"></param>
     /// <param name="ComponentType"></param>
     /// <returns></returns>
+    [XLua.LuaCallCSharp]
     public Component GetComponent(string objName, string ComponentType)
     {
         string type = ComponentType.ToLower();

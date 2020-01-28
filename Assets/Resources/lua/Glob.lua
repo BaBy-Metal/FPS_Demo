@@ -22,7 +22,7 @@ Glob.UISign=require "UIPanel/UISign"
 Glob.UICheck=require "UIPanel/UICheck"
 Glob.UIPrompt=require "UIPanel/UIPrompt"
 Glob.UIBag=require "UIPanel/UIBag"
-Glob.UIInsRole=require "UIPanel/UI_Ins_Role"
+Glob.UIInsRole=require "UIPanel/UIInsRole"
 
 Glob.ConfigBase=require "Config/ConfigBase"
 Glob.ConfigMgr=require "Config/ConfigMgr"
@@ -33,6 +33,7 @@ Glob.BagConfig=require "Config/BagConfig"
 
 Glob.RoleItemModel=require "Model/RoleItemModel"
 Glob.BagItem=require "Model/BagItem"
+Glob.RoleModel=require "Model/RoleModel"
 
 UIType={
     Log=1,
@@ -43,7 +44,8 @@ UIType={
     Check=6,
     Prompt=7,
     Bag=8,
-    CreateRole=9
+    CreateRole=9,
+    UIInsRole=10
 }
 
 Layer={

@@ -25,6 +25,9 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(StringDispose), StringDisposeWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(UIMove), UIMoveWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(object), SystemObjectWrap.__Register);
         
         

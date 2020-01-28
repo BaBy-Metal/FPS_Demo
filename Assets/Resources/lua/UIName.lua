@@ -13,8 +13,8 @@ local UIName=function (uiType)
         return Glob.UIPrompt.new()
     elseif uiType==UIType.Bag then
         return Glob.UIBag.new()
-    elseif uiType==UIType.Bag then
-        return Glob.UIInsRole.new()
+    elseif uiType==UIType.UIInsRole then
+        return Glob.UIInsRole()
     end
     return nil
 end
