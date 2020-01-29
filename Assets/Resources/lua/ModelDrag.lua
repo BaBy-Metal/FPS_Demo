@@ -1,10 +1,5 @@
-require "Glob"
-
 local onDrag = false;
 local speed = 60
-local zSpeed
-local X
-local mXY
 
 RoleMove.OnDown=function ()
     if Input.GetMouseButtonDown(0) then
@@ -12,9 +7,9 @@ RoleMove.OnDown=function ()
     end
 end
 
-RoleMove.OnDrag=function ()
+RoleMove.OnDrag=function (transform)
     if onDrag then
-        RoleMove.transform:Rotate(Vector3.up,-Input.GetAxis("Mouse X")*speed)
+        transform:Rotate(Vector3.up,-Input.GetAxis("Mouse X")*speed)
     end
 end
 

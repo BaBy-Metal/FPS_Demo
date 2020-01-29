@@ -9,6 +9,8 @@ using XLua;
 [CSharpCallLua]
 public delegate void Function();
 [CSharpCallLua]
+public delegate void Function<T>(T t);
+[CSharpCallLua]
 public class MainGame : MonoBehaviour
 {
     [CSharpCallLua]
@@ -19,6 +21,7 @@ public class MainGame : MonoBehaviour
     public Function OnUpdate;
     [CSharpCallLua]
     public Function _OnDestroy;
+    public Function OnToggle;
 
     private void Awake()
     {
@@ -26,12 +29,11 @@ public class MainGame : MonoBehaviour
         LuaMgr.Instance.Init();
         LuaMgr.Instance.luaEnv.Global.Set("this", this);
         LuaMgr.Instance.luaEnv.DoString("require 'MainGame'");
-
-        //gameObject.GetComponent<Toggle>()
     }
 
     private void Update()
     {
         OnUpdate?.Invoke();
+        OnToggle?.Invoke();
     }
 }

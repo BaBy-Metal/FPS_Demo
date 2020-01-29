@@ -45,8 +45,14 @@ function UICharact:Init(content)
         end
     end
 
-    for key, value in pairs(prefabDic) do
-        
+    this.OnToggle=function ()
+        for _, value in pairs(itemDic) do
+            if value.toggle.isOn then
+                prefabDic[value.ZhiYe_1.text]:SetActive(true)
+            else
+                prefabDic[value.ZhiYe_1.text]:SetActive(false)
+            end
+        end
     end
 
     --关闭按钮触发事件
@@ -57,12 +63,17 @@ function UICharact:Init(content)
 
     --跳转界面按钮触发事件
     enter_Btn.onClick:AddListener(function ()
-        Glob.UIMgr():Open(UIType.Main)
-        Glob.UIMgr():Close(UIType.Charactor)
+        for _, value in pairs(itemDic) do
+            if value.toggle.isOn then
+                Glob.UIMgr():Open(UIType.Main)
+                Glob.UIMgr():Close(UIType.Charactor)
+            end
+        end
     end)
 
     --创建新角色按钮事件
     create_Btn.onClick:AddListener(function ()
+        pos.gameObject:SetActive(false)
         Glob.UIMgr():Open(UIType.UIInsRole)
     end)
 end

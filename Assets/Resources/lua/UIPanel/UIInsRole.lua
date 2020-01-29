@@ -21,11 +21,11 @@ function UIInsRole:Init(content)
             print("生成新角色")
             print(Dropdown.captionText.text)
             if Dropdown.captionText.text=="攻坚干员" then
-                self.prefab=Glob.RoleModel.new("MT")
+                self.prefab=Glob.RoleModel():Create("MT")
             elseif Dropdown.captionText.text=="火力干员" then
-                self.prefab=Glob.RoleModel.new("DPS")
+                self.prefab=Glob.RoleModel():Create("DPS")
             elseif Dropdown.captionText.text=="医疗干员" then
-                self.prefab=Glob.RoleModel.new("NAI")
+                self.prefab=Glob.RoleModel():Create("NAI")
             end
 
             Glob.UIMgr():Close(UIType.UIInsRole)

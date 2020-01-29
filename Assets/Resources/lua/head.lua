@@ -70,3 +70,4 @@ BuildTarget=UnityEditor.BuildTarget
 
 StringDispose=CS.StringDispose
 Time=UnityEngine.Time
+RoleMove=CS.RoleMove

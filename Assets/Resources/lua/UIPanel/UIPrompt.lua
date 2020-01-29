@@ -5,12 +5,13 @@ function UIPrompt:Init(content)
     self.ui=GameObject.Instantiate(self.ui)
     self.ui.transform:SetParent(content,false)
 end
+
 local uiSelf=nil
 function UIPrompt:Open()
     if self.ui~=nil then
         uiSelf=self.ui
         self.ui:SetActive(true)
-        this.OnUpdate=self.Auto/9
+        this.OnUpdate=self.AutoClose
     end
 end
 
@@ -20,7 +21,7 @@ function UIPrompt:AutoClose()
         timer= Time.deltaTime
     end
     timer=timer+Time.deltaTime
-    print(timer)
+
     --print(self)
     if timer>=3.0 then
         GameObject.Destroy(uiSelf)
