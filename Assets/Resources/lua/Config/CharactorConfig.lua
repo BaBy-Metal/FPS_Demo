@@ -1,3 +1,4 @@
+--角色数据
 local CharactorConfig=Glob.lplus.class(Glob.ConfigBase)
 
 function CharactorConfig:Init()
@@ -17,6 +18,10 @@ function CharactorConfig:Init()
     local c=self.msg
     Debug.Log(c[1].name)
     return c
+end
+
+function CharactorConfig:SetMsg(...)
+    self.msg[#self.msg+1]=Glob.CharactorData.new()
 end
 
 return CharactorConfig

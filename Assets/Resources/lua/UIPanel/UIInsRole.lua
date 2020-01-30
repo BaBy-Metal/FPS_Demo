@@ -18,16 +18,16 @@ function UIInsRole:Init(content)
 
     conf_Btn.onClick:AddListener(function ()
         if Name.text~="" then
-            print("生成新角色")
-            print(Dropdown.captionText.text)
+            self.prefab=Glob.RoleItemModel.new()
             if Dropdown.captionText.text=="攻坚干员" then
-                self.prefab=Glob.RoleModel():Create("MT")
+                self.prefab:Init()
             elseif Dropdown.captionText.text=="火力干员" then
-                self.prefab=Glob.RoleModel():Create("DPS")
+                self.prefab:Init()
             elseif Dropdown.captionText.text=="医疗干员" then
-                self.prefab=Glob.RoleModel():Create("NAI")
+                
             end
 
+            self.prefab:Init()
             Glob.UIMgr():Close(UIType.UIInsRole)
         end
     end)

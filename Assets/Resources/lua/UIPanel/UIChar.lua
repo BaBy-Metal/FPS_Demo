@@ -28,6 +28,8 @@ function UICharact:Init(content)
         itemDic[value.id]=item
     end
 
+    itemDic[msg[1].id].toggle.isOn=true
+
     --根据角色栏字典，生成角色模型并保存
     for _, value in pairs(itemDic) do
         local tmp

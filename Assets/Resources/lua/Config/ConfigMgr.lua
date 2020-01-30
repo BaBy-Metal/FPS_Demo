@@ -25,6 +25,10 @@ function ConfigMgr:GetMsg(_type)
     end
 end
 
+function ConfigMgr:SetMsg(_type,...)
+    
+end
+
 function ConfigMgr:RefreshMsg(enum)
     for key, value in pairs(configDic) do
         if key==enum then

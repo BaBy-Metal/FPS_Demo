@@ -10,10 +10,10 @@ function RoleItemModel:Init(...)
     self.obj.transform:SetParent(content,false)
 
     self.fb=self.obj:GetComponent("FindBase")
-    self. toggle=self.obj:GetComponent("Toggle")
-    self. head=self.fb:GetImage("head")
-    self. name1=self.fb:GetInputField("name1")
-    self. ZhiYe_1=self.fb:GetText("ZhiYe_1")
+    self.toggle=self.obj:GetComponent("Toggle")
+    self.head=self.fb:GetImage("head")
+    self.name1=self.fb:GetInputField("name1")
+    self.ZhiYe_1=self.fb:GetText("ZhiYe_1")
 
     self.toggle.group=content:GetComponent("ToggleGroup")
     self.toggle.isOn=false

@@ -11,6 +11,7 @@ end
 
 function RoleModel:Create(prefabType)
     if self.pos~=nil then
+        print("生成新角色栏")
         return GameObject.Instantiate(Resources.Load(prefabType),self.pos)
     else
         print("生成点未赋值"..self.pos)
