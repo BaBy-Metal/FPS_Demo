@@ -26,7 +26,11 @@ function ConfigMgr:GetMsg(_type)
 end
 
 function ConfigMgr:SetMsg(_type,...)
-    
+    for key, value in pairs(configDic) do
+        if key==_type then
+            return value:Init()
+        end
+    end
 end
 
 function ConfigMgr:RefreshMsg(enum)

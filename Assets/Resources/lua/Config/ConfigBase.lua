@@ -5,4 +5,12 @@ function ConfigBase:Init()
     
 end
 
+function ConfigBase:GetMsg()
+    
+end
+
+function ConfigBase:SetMsg()
+    
+end
+
 return ConfigBase

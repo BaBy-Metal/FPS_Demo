@@ -21,7 +21,7 @@ function CharactorConfig:Init()
 end
 
 function CharactorConfig:SetMsg(...)
-    self.msg[#self.msg+1]=Glob.CharactorData.new()
+    self.msg[#self.msg+1]=Glob.CharactorData.new(...)
 end
 
 return CharactorConfig

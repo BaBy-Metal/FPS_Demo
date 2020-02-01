@@ -1461,8 +1461,8 @@ GameObject:
   - component: {fileID: 7944881415932803380}
   - component: {fileID: 7944881415932803382}
   - component: {fileID: 7944881415932803383}
-  - component: {fileID: 668212601933126253}
   - component: {fileID: 415487515088280354}
+  - component: {fileID: 8772612565171690983}
   m_Layer: 5
   m_Name: UIInsRole
   m_TagString: Untagged
@@ -1530,18 +1530,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &668212601933126253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7944881415932803381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c9c9174bfc7cb40b8e99a99ad18812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &415487515088280354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,6 +1542,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa31eedda7d6e14989590ff1da5631d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8772612565171690983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944881415932803381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c9c9174bfc7cb40b8e99a99ad18812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
+  Centre: {fileID: 0}
 --- !u!1 &7944881415977470712
 GameObject:
   m_ObjectHideFlags: 0
