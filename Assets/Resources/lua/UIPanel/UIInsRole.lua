@@ -20,11 +20,11 @@ function UIInsRole:Init(content)
         if Name.text~="" then
             self.prefab=Glob.RoleItemModel.new()
             if Dropdown.captionText.text=="攻坚干员" then
-                Glob.ConfigMgr()
+                Glob.ConfigMgr():SetMsg(UIType.Charactor,Name.text,"攻坚干员")
             elseif Dropdown.captionText.text=="火力干员" then
-                
+                Glob.ConfigMgr():SetMsg(UIType.Charactor,Name.text,"火力干员")
             elseif Dropdown.captionText.text=="医疗干员" then
-                
+                Glob.ConfigMgr():SetMsg(UIType.Charactor,Name.text,"医疗干员")
             end
 
             self.prefab:Init()

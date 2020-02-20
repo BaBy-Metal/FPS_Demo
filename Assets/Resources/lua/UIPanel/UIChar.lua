@@ -9,6 +9,7 @@ function UICharact:Init(content)
 
     --获取角色数据
     local msg=Glob.ConfigMgr():GetMsg(UIType.Charactor)
+    print("获取角色栏数据的个数:"..#msg)
 
     local fb=self.ui:GetComponent("FindBase")
     local _content=fb:GetRectTransform("Content")
@@ -47,12 +48,15 @@ function UICharact:Init(content)
         end
     end
 
-    this.OnToggle=function ()
-        for _, value in pairs(itemDic) do
-            if value.toggle.isOn then
-                prefabDic[value.ZhiYe_1.text]:SetActive(true)
-            else
-                prefabDic[value.ZhiYe_1.text]:SetActive(false)
+    this.OnToggle=function (bool)
+        if bool then
+            for _, value in pairs(itemDic) do
+                print("让我康康你是哪个key："..value.ZhiYe_1.text)
+                if value.toggle.isOn then
+                    prefabDic[value.ZhiYe_1.text]:SetActive(true)
+                else
+                    prefabDic[value.ZhiYe_1.text]:SetActive(false)
+                end
             end
         end
     end

@@ -28,7 +28,7 @@ end
 function ConfigMgr:SetMsg(_type,...)
     for key, value in pairs(configDic) do
         if key==_type then
-            return value:Init()
+            value:SetMsg(...)
         end
     end
 end

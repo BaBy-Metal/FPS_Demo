@@ -21,4 +21,8 @@ function BagConfig:Init()
     return c
 end
 
+function BagConfig:SetMsg()
+    
+end
+
 return BagConfig

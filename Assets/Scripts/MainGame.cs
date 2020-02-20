@@ -11,6 +11,7 @@ public delegate void Function();
 [CSharpCallLua]
 public delegate void Function<T>(T t);
 [CSharpCallLua]
+[LuaCallCSharp]
 public class MainGame : MonoBehaviour
 {
     [CSharpCallLua]
@@ -21,7 +22,21 @@ public class MainGame : MonoBehaviour
     public Function OnUpdate;
     [CSharpCallLua]
     public Function _OnDestroy;
-    public Function OnToggle;
+    public Function<bool> OnToggle;
+
+    static MainGame instance = null;
+    public static MainGame Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<MainGame>();
+            }
+
+            return instance;
+        }
+    }
 
     private void Awake()
     {
@@ -34,6 +49,9 @@ public class MainGame : MonoBehaviour
     private void Update()
     {
         OnUpdate?.Invoke();
-        OnToggle?.Invoke();
+        Toggle toggle = GetComponent<Toggle>();
+        
+
+        //OnToggle?.Invoke();
     }
 }
