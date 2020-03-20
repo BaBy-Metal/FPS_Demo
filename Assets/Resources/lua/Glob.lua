@@ -4,6 +4,7 @@ require "head"
 Glob.lplus = require "Lplus"
 Glob.json = require "json"
 
+--数据类以及读取写入类
 Glob.Write=require "Json/WriteJson"
 Glob.Read=require "Json/ReadJson"
 Glob.LogClass=require "Json/LogClass"
@@ -11,9 +12,9 @@ Glob.ServerData=require "Json/ServerData"
 Glob.CharactorData=require "Json/CharactorData"
 Glob.BagData=require "Json/BagData"
 
-
-Glob.UIMgr=require "UIMgr"
-Glob.UIBase=require "UIBase"
+--ui界面
+Glob.UIMgr=require "Framework/UIMgr"
+Glob.UIBase=require "Framework/UIBase"
 Glob.UIName=require "UIName"
 Glob.UILog=require "UIPanel/UILog"
 Glob.UIServer=require "UIPanel/UIServer"
@@ -24,6 +25,7 @@ Glob.UIPrompt=require "UIPanel/UIPrompt"
 Glob.UIBag=require "UIPanel/UIBag"
 Glob.UIInsRole=require "UIPanel/UIInsRole"
 
+--
 Glob.ConfigBase=require "Config/ConfigBase"
 Glob.ConfigMgr=require "Config/ConfigMgr"
 Glob.LogConfig=require "Config/LogConfig"
@@ -34,6 +36,9 @@ Glob.BagConfig=require "Config/BagConfig"
 Glob.RoleItemModel=require "Model/RoleItemModel"
 Glob.BagItem=require "Model/BagItem"
 Glob.RoleModel=require "Model/RoleModel"
+
+--游戏战斗逻辑相关
+Glob.PlayerMgr=require 'Game/Player/PlayerMgr'
 
 UIType={
     Log=1,

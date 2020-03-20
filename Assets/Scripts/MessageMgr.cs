@@ -24,4 +24,9 @@ public class MessageMgr
     {
         actionDic = new Dictionary<string, Action>();
     }
+
+    public void Add(string type,Action action)
+    {
+
+    }
 }
